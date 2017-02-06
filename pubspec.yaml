@@ -1,0 +1,34 @@
+name: ng_grid
+description: Angular Grid Component
+version: 0.0.1
+environment:
+  sdk: '>=1.19.0 <2.0.0'
+
+dependencies:
+  analyzer: ^0.29.1
+  angular2: ^2.2.0
+  uuid: ^0.5.0
+  rxdart: any
+  tuple: any
+  ng2_state:
+    git: git@github.com:frankpepermans/ng2_state.git
+
+dev_dependencies:
+  browser: ^0.10.0
+  dart_to_js_script_rewriter: any
+
+transformers:
+- angular2:
+    platform_directives:
+    - 'package:angular2/common.dart#COMMON_DIRECTIVES'
+    - 'package:ng2_state/common.dart#COMMON_DIRECTIVES'
+    platform_pipes:
+    - 'package:angular2/common.dart#COMMON_PIPES'
+    entry_points: web/main.dart
+- angular2/transform/reflection_remover:
+    $include:
+      - web/main.dart
+- $dart2js:
+    checked: false
+    minify: true
+- dart_to_js_script_rewriter

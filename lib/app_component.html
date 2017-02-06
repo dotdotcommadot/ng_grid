@@ -1,0 +1,25 @@
+<button (click)="addData()">Add</button>
+
+<grid [dataProvider]="data"
+      [showRowNumbers]="true"
+      state="application" stateId="grid" >
+
+    <grid-column title="String"
+                 [itemRenderer]="editableTextRenderer"
+                 [labelHandler]="stringValueHandler"
+                 [headerRenderer]="sortableHeaderRenderer"
+                 [sortHandler]="sortByStringValue"></grid-column>
+
+    <grid-column title="Boolean"
+                 [itemRenderer]="checkBoxRenderer"></grid-column>
+
+    <grid-column title="Numeric"
+                 [itemRenderer]="simpleTextRenderer"
+                 [labelHandler]="numericValueHandler"
+                 [headerRenderer]="sortableHeaderRenderer"
+                 [sortHandler]="sortByNumericValue"></grid-column>
+
+    <grid-column title="Date"
+                 [itemRenderer]="simpleTextRenderer"
+                 [labelHandler]="dateValueHandler"></grid-column>
+</grid>

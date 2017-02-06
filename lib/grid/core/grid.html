@@ -1,0 +1,31 @@
+<table>
+    <thead>
+        <tr>
+            <th *ngIf="showRowNumbers"></th>
+
+            <th *ngFor="let gridColumn of gridColumns">
+
+                <header-renderer-injector
+                    [gridColumn]="gridColumn"></header-renderer-injector>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody #scrollPane>
+        <tr *ngFor="let data of dataProvider;
+                    let i = index;">
+
+            <td *ngIf="showRowNumbers" >
+                {{i + 1}}
+            </td>
+
+            <td *ngFor="let gridColumn of gridColumns;">
+
+                <item-renderer-injector
+                    [gridColumn]="gridColumn"
+                    [dataProvider]="dataProvider"
+                    [data]="data"></item-renderer-injector>
+            </td>
+        </tr>
+    </tbody>
+</table>

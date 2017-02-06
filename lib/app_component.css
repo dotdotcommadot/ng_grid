@@ -1,0 +1,15 @@
+:host >>> table {
+    background-color:orange;
+}
+
+:host >>> thead {
+    display: block;
+}
+
+:host >>> tbody {
+    background-color:blue;
+    display: block;
+    height: 100vh;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
+}
