@@ -6,7 +6,7 @@ import 'package:ng_grid/grid/infrastructure/sort_service.dart';
 
 @Component(
   changeDetection: ChangeDetectionStrategy.Default,
-  encapsulation: ViewEncapsulation.Emulated,
+  encapsulation: ViewEncapsulation.None,
   preserveWhitespace: false,
   selector: 'sortable-header-renderer',
   template: '''

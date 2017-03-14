@@ -15,12 +15,12 @@ import 'package:rxdart/rxdart.dart' as rx;
 @Component(
   changeDetection: ChangeDetectionStrategy.Default,
   directives: const <Type>[HeaderRendererInjector, ItemRendererInjector, State],
-  encapsulation: ViewEncapsulation.Emulated,
+  encapsulation: ViewEncapsulation.None,
   preserveWhitespace: false,
   providers: const <dynamic>[SortService, const Provider(StatefulComponent, useExisting: Grid)],
   selector: 'grid',
   templateUrl: 'grid.html',
-  styles: const ['tbody {overflow-y: scroll}']
+  styles: const ['tbody {overflow-y: auto}']
 )
 class Grid implements StatefulComponent, OnDestroy {
 
@@ -118,5 +118,14 @@ class Grid implements StatefulComponent, OnDestroy {
 
   int trackColumnByFunction(index, item){
     return index;
+  }
+
+  bool isScrollBarSpacingShown() {
+    return (scrollPane.nativeElement.offsetWidth - scrollPane.nativeElement.clientWidth) > 0;
+  }
+
+  String getScrollbarWidth() {
+    final int scrollBarWidth = scrollPane.nativeElement.offsetWidth - scrollPane.nativeElement.clientWidth;
+    return '0 0 ${scrollBarWidth}px';
   }
 }

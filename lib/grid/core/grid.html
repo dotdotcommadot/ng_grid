@@ -5,9 +5,11 @@
 
             <th *ngFor="let gridColumn of gridColumns">
 
-                <header-renderer-injector
-                    [gridColumn]="gridColumn"></header-renderer-injector>
+                <header-renderer-injector [gridColumn]="gridColumn"></header-renderer-injector>
             </th>
+
+            <th *ngIf="isScrollBarSpacingShown()"
+                [style.flex]="getScrollbarWidth()"></th>
         </tr>
     </thead>
 

@@ -30,6 +30,8 @@ class GridColumn {
 
   @Input() SortHandler sortHandler;
 
+  @Input() Map<String, dynamic> properties = {};
+
   bool get isSortable => sortHandler != null;
 
   //-----------------------------

@@ -6,7 +6,7 @@ import 'package:ng_grid/grid/header_renderers/header_renderer_base.dart';
 
 @Component(
   changeDetection: ChangeDetectionStrategy.Default,
-  encapsulation: ViewEncapsulation.Emulated,
+  encapsulation: ViewEncapsulation.None,
   preserveWhitespace: false,
   selector: 'header-renderer-injector',
   template: ''
@@ -49,8 +49,7 @@ class HeaderRendererInjector implements AfterContentInit {
           _viewContainer.injector)
           .instance;
 
-        headerRendererInst
-          ..gridColumn = gridColumn;
+        headerRendererInst.gridColumn = gridColumn;
     });
   }
 }

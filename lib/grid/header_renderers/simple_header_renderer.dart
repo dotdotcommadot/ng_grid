@@ -5,7 +5,7 @@ import 'package:ng_grid/grid/header_renderers/header_renderer_base.dart';
 
 @Component(
   changeDetection: ChangeDetectionStrategy.Default,
-  encapsulation: ViewEncapsulation.Emulated,
+  encapsulation: ViewEncapsulation.None,
   preserveWhitespace: false,
   selector: 'simple-header-renderer',
   template: '<div>{{gridColumn?.title}}</div>'

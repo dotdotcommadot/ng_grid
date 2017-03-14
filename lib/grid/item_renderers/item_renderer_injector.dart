@@ -6,7 +6,7 @@ import 'package:ng_grid/grid/item_renderers/item_renderer_base.dart';
 
 @Component(
   changeDetection: ChangeDetectionStrategy.Default,
-  encapsulation: ViewEncapsulation.Emulated,
+  encapsulation: ViewEncapsulation.None,
   preserveWhitespace: false,
   selector: 'item-renderer-injector',
   template: ''
