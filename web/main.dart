@@ -11,6 +11,4 @@ void main() {
   SerializableTuple4.DO_SCAN();
 
   bootstrap(AppComponent);
-
-
 }

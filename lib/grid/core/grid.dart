@@ -32,12 +32,10 @@ class Grid implements StatefulComponent, OnDestroy {
     _scrollPane = value;
 
     if (value != null) {
-      final Element element = scrollPane.nativeElement;
 
-      element.onScroll
-      .listen((Event event) => _scrollTop$ctrl.add(element.scrollTop));
-
-      element.scrollTop = _tempValue;
+      scrollPane.nativeElement
+        ..onScroll.listen((Event event) => _scrollTop$ctrl.add(scrollPane.nativeElement.scrollTop))
+        ..scrollTop = _tempValue;
     }
   }
 
@@ -53,9 +51,9 @@ class Grid implements StatefulComponent, OnDestroy {
     _scrollTop$ctrl.close();
   }
 
-  @override Stream<Entity> provideState() => rx.observable(_scrollTop$ctrl.stream)
+  @override Stream<Entity> provideState() => new rx.Observable(_scrollTop$ctrl.stream)
       .map((num position) => new SerializableTuple1<num>()
-    ..item1 = position);
+        ..item1 = position);
 
   @override void receiveState(Entity state, StatePhase phase) {
     final SerializableTuple1<num> tuple = state as SerializableTuple1<num>;
@@ -111,6 +109,10 @@ class Grid implements StatefulComponent, OnDestroy {
 
     this._sortService.grid = this;
   }
+
+  //-----------------------------
+  // Public Methods
+  //-----------------------------
 
   int trackDataByFunction(index, item) {
     return item.numericValue;

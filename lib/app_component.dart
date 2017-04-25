@@ -34,7 +34,7 @@ class AppComponent {
     stateService.stateName = 'ng-grid';
     stateService.init();
 
-    data = generateData();
+    //data = generateData();
   }
 
   void sortByStringValue(List<DataWrapper> data, int direction) {

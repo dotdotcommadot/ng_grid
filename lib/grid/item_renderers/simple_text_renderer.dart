@@ -4,17 +4,25 @@ import 'package:angular2/angular2.dart';
 import 'package:ng_grid/grid/item_renderers/item_renderer_base.dart';
 
 @Component(
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.Stateful,
   encapsulation: ViewEncapsulation.None,
   preserveWhitespace: false,
   selector: 'simple-text-renderer',
   template: '<div>{{resolveLabel()}}</div>'
 )
-class SimpleTextRenderer extends ItemRendererBase {
+class SimpleTextRenderer extends ItemRendererBase with ComponentState {
+
+  @override void set data(dynamic value) {
+    setState(() => super.data = value);
+  }
 
   //-----------------------------
   // Constructor
   //-----------------------------
 
-  SimpleTextRenderer();
+  SimpleTextRenderer() {
+
+    // Fixes null-pointer exception
+    stateChangeCallback = (){};
+  }
 }
