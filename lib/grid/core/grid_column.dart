@@ -5,7 +5,9 @@ import 'package:ng_grid/grid/header_renderers/simple_header_renderer.dart';
 import 'package:ng_grid/grid/infrastructure/sort_service.dart';
 import 'package:ng_grid/grid/item_renderers/simple_text_renderer.dart';
 
-typedef dynamic LabelHandler(dynamic data);
+typedef String LabelHandler(dynamic data);
+
+typedef List<dynamic> LinkHandler(dynamic data);
 
 @Component(
   changeDetection: ChangeDetectionStrategy.Default,
@@ -27,6 +29,8 @@ class GridColumn {
   @Input() String title = '';
 
   @Input() LabelHandler labelHandler;
+
+  @Input() LinkHandler linkHandler;
 
   @Input() SortHandler sortHandler;
 
