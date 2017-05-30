@@ -10,13 +10,13 @@ typedef String LabelHandler(dynamic data);
 typedef List<dynamic> LinkHandler(dynamic data);
 
 @Component(
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.Stateful,
   encapsulation: ViewEncapsulation.None,
   preserveWhitespace: false,
   selector: 'grid-column',
   template: ''
 )
-class GridColumn {
+class GridColumn extends ComponentState {
 
   //-----------------------------
   // Input

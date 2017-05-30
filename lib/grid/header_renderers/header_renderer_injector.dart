@@ -5,13 +5,13 @@ import 'package:ng_grid/grid/core/grid_column.dart';
 import 'package:ng_grid/grid/header_renderers/header_renderer_base.dart';
 
 @Component(
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.Stateful,
   encapsulation: ViewEncapsulation.None,
   preserveWhitespace: false,
   selector: 'header-renderer-injector',
   template: ''
 )
-class HeaderRendererInjector implements AfterContentInit {
+class HeaderRendererInjector extends ComponentState implements AfterContentInit {
 
   //-----------------------------
   // Public Properties

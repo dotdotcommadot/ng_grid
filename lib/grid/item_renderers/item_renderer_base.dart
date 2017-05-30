@@ -3,7 +3,7 @@ library nggrid.item_renderers.item_renderer_base;
 import 'package:angular2/angular2.dart';
 import 'package:ng_grid/grid/core/grid_column.dart';
 
-abstract class ItemRendererBase {
+abstract class ItemRendererBase extends ComponentState {
 
   //-----------------------------
   // Public Properties

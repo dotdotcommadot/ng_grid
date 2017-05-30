@@ -4,7 +4,7 @@ import 'package:angular2/angular2.dart';
 import 'package:ng_grid/grid/item_renderers/item_renderer_base.dart';
 
 @Component(
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.Stateful,
   encapsulation: ViewEncapsulation.None,
   preserveWhitespace: false,
   selector: 'editable-text-renderer',

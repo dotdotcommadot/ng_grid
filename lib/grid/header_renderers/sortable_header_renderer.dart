@@ -21,7 +21,7 @@ class SortableHeaderRenderer extends HeaderRendererBase {
   // Public Properties
   //-----------------------------
 
-  final sortService;
+  final SortService sortService;
 
   bool get isSorted => gridColumn == sortService.currentSortedColumn;
 

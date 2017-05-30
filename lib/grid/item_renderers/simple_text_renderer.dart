@@ -10,7 +10,7 @@ import 'package:ng_grid/grid/item_renderers/item_renderer_base.dart';
   selector: 'simple-text-renderer',
   template: '<div>{{resolveLabel()}}</div>'
 )
-class SimpleTextRenderer extends ItemRendererBase with ComponentState {
+class SimpleTextRenderer extends ItemRendererBase {
 
   @override void set data(dynamic value) {
     setState(() => super.data = value);
