@@ -13,7 +13,7 @@ import 'package:ng_grid/grid/item_renderers/item_renderer_injector.dart';
 import 'package:rxdart/rxdart.dart' as rx;
 
 @Component(
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.Stateful,
   directives: const <Type>[HeaderRendererInjector, ItemRendererInjector, State],
   encapsulation: ViewEncapsulation.None,
   preserveWhitespace: false,
@@ -22,7 +22,7 @@ import 'package:rxdart/rxdart.dart' as rx;
   templateUrl: 'grid.html',
   styles: const ['tbody {overflow-y: auto}']
 )
-class Grid implements StatefulComponent, OnDestroy {
+class Grid extends ComponentState implements StatefulComponent, OnDestroy {
 
   num _tempValue = 0;
 
@@ -82,17 +82,23 @@ class Grid implements StatefulComponent, OnDestroy {
   @Input() set dataProvider(List<dynamic> value) {
 
     _sortService.forceSort();
-    _dataProvider = value;
+    setState(() => _dataProvider = value);
   }
   List<dynamic> get dataProvider => _dataProvider;
 
   bool _showRowNumbers = false;
 
   @Input() set showRowNumbers(bool value) {
-    _showRowNumbers = value;
+    setState(() => _showRowNumbers = value);
   }
 
   bool get showRowNumbers => _showRowNumbers;
+
+  bool _isLoading = false;
+  @Input() set isLoading(bool value) {
+    setState(() => _isLoading = value);
+  }
+  bool get isLoading => _isLoading;
 
   //-----------------------------
   // Private Properties
@@ -129,5 +135,15 @@ class Grid implements StatefulComponent, OnDestroy {
   String getScrollbarWidth() {
     final int scrollBarWidth = scrollPane.nativeElement.offsetWidth - scrollPane.nativeElement.clientWidth;
     return '0 0 ${scrollBarWidth}px';
+  }
+
+  void setLoading() {
+
+    setState(() => this.isLoading = true);
+  }
+
+  void unsetLoading() {
+
+    setState(() => this.isLoading = false);
   }
 }

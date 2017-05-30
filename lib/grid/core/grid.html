@@ -13,7 +13,10 @@
         </tr>
     </thead>
 
-    <tbody #scrollPane>
+    <tbody #scrollPane
+           [ngClass]="{'grid__body--loading': isLoading}">
+        <div class="loader-overlay"
+            *ngIf="isLoading"></div>
         <tr *ngFor="let data of dataProvider;
                     let i = index;">
 
