@@ -5,7 +5,7 @@ import 'package:ng_grid/grid/header_renderers/header_renderer_base.dart';
 import 'package:ng_grid/grid/infrastructure/sort_service.dart';
 
 @Component(
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.Stateful,
   encapsulation: ViewEncapsulation.None,
   preserveWhitespace: false,
   selector: 'sortable-header-renderer',

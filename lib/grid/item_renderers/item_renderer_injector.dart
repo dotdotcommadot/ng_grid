@@ -5,13 +5,13 @@ import 'package:ng_grid/grid/core/grid_column.dart';
 import 'package:ng_grid/grid/item_renderers/item_renderer_base.dart';
 
 @Component(
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.Stateful,
   encapsulation: ViewEncapsulation.None,
   preserveWhitespace: false,
   selector: 'item-renderer-injector',
   template: ''
 )
-class ItemRendererInjector implements AfterContentInit {
+class ItemRendererInjector extends ComponentState implements AfterContentInit {
 
   //-----------------------------
   // Public Properties
@@ -20,14 +20,14 @@ class ItemRendererInjector implements AfterContentInit {
   GridColumn _gridColumn;
 
   @Input() set gridColumn(GridColumn value) {
-    _gridColumn = value;
+    setState(() => _gridColumn = value);
   }
   GridColumn get gridColumn => _gridColumn;
 
   dynamic _data;
 
   @Input() set data(dynamic value) {
-    _data = value;
+    setState(() => _data = value);
   }
 
   dynamic get data => _data;
