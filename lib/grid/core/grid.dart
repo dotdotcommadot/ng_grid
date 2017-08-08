@@ -124,7 +124,7 @@ class Grid extends ComponentState implements StatefulComponent, OnDestroy {
     return item.numericValue;
   }
 
-  int trackColumnByFunction(index, item){
+  int trackColumnByFunction(index, item) {
     return index;
   }
 
@@ -145,5 +145,9 @@ class Grid extends ComponentState implements StatefulComponent, OnDestroy {
   void unsetLoading() {
 
     setState(() => this.isLoading = false);
+  }
+
+  void refresh() {
+    deliverStateChanges();
   }
 }
