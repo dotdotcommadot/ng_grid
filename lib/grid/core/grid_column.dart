@@ -10,6 +10,8 @@ typedef String LabelHandler(dynamic data);
 
 typedef dynamic ValueHandler(dynamic data);
 
+typedef dynamic ActionHandler(dynamic data);
+
 typedef List<dynamic> LinkHandler(dynamic data);
 
 @Component(
@@ -34,6 +36,8 @@ class GridColumn extends ComponentState {
   @Input() LabelHandler labelHandler;
 
   @Input() ValueHandler valueHandler;
+
+  @Input() ActionHandler actionHandler;
 
   @Input() LinkHandler linkHandler;
 
