@@ -1,22 +1,19 @@
-library nggrid.header_renderers.sortable_header_renderer;
-
 import 'package:angular2/angular2.dart';
+
 import 'package:ng_grid/grid/header_renderers/header_renderer_base.dart';
 import 'package:ng_grid/grid/infrastructure/sort_service.dart';
 
 @Component(
-  changeDetection: ChangeDetectionStrategy.Stateful,
-  encapsulation: ViewEncapsulation.None,
-  preserveWhitespace: false,
-  selector: 'sortable-header-renderer',
-  template: '''
+    changeDetection: ChangeDetectionStrategy.Stateful,
+    encapsulation: ViewEncapsulation.None,
+    preserveWhitespace: false,
+    selector: 'sortable-header-renderer',
+    template: '''
     <button (click)="sortData()">
       {{gridColumn?.title}}
       <span *ngIf="isSorted"> {{sortDirection == 1? 'ASC': 'DESC'}}</span>
-    </button>'''
-)
+    </button>''')
 class SortableHeaderRenderer extends HeaderRendererBase {
-
   //-----------------------------
   // Public Properties
   //-----------------------------
@@ -31,15 +28,13 @@ class SortableHeaderRenderer extends HeaderRendererBase {
   // Constructor
   //-----------------------------
 
-  SortableHeaderRenderer(
-    @Inject(SortService) this.sortService);
+  SortableHeaderRenderer(@Inject(SortService) this.sortService);
 
   //-----------------------------
   // Public Methods
   //-----------------------------
 
   void sortData() {
-
     if (gridColumn.isSortable) {
       sortService.sortOnColumn(gridColumn);
     }
