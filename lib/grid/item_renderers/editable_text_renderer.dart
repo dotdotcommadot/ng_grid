@@ -1,17 +1,14 @@
-library nggrid.item_renderers.editable_text_renderer;
-
 import 'package:angular2/angular2.dart';
+
 import 'package:ng_grid/grid/item_renderers/item_renderer_base.dart';
 
 @Component(
-  changeDetection: ChangeDetectionStrategy.Stateful,
-  encapsulation: ViewEncapsulation.None,
-  preserveWhitespace: false,
-  selector: 'editable-text-renderer',
-  template: '<div contentEditable="true">{{resolveLabel()}}</div>'
-)
-class EditableTextRenderer extends ItemRendererBase {
-
+    changeDetection: ChangeDetectionStrategy.Stateful,
+    encapsulation: ViewEncapsulation.None,
+    preserveWhitespace: false,
+    selector: 'editable-text-renderer',
+    template: '<div contentEditable="true">{{resolveLabel()}}</div>')
+class EditableTextRenderer extends ItemRendererBase<dynamic> {
   //-----------------------------
   // Constructor
   //-----------------------------
@@ -22,10 +19,9 @@ class EditableTextRenderer extends ItemRendererBase {
   // Public Methods
   //-----------------------------
 
+  @override
   String resolveLabel() {
-
-    if (gridColumn == null ||
-        data == null) {
+    if (gridColumn == null || data == null) {
       return '';
     }
 

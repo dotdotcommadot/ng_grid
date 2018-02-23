@@ -1,6 +1,5 @@
-library nggrid.infrastructure.sort_service;
-
 import 'package:angular2/angular2.dart';
+
 import 'package:ng_grid/grid/core/grid.dart';
 import 'package:ng_grid/grid/core/grid_column.dart';
 
@@ -8,7 +7,6 @@ typedef void SortHandler(List<dynamic> dataProvider, int direction);
 
 @Injectable()
 class SortService {
-
   //-----------------------------
   // Public Properties
   //-----------------------------
@@ -32,14 +30,12 @@ class SortService {
   //-----------------------------
 
   void sortOnColumn(GridColumn column) {
-
     currentSortDirection = _getSortDirectionFor(column);
     column.sortHandler(grid.dataProvider, currentSortDirection);
     currentSortedColumn = column;
   }
 
   void forceSort() {
-
     if (currentSortedColumn != null) {
       currentSortedColumn.sortHandler(grid.dataProvider, currentSortDirection);
     }
@@ -50,7 +46,6 @@ class SortService {
   //-----------------------------
 
   int _getSortDirectionFor(GridColumn column) {
-
     int sortDirection = SortService.SORT_DIRECTION_ASC;
 
     if (currentSortedColumn != column) {

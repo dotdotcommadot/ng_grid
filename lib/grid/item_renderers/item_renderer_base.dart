@@ -1,10 +1,8 @@
-library nggrid.item_renderers.item_renderer_base;
-
 import 'package:angular2/angular2.dart';
+
 import 'package:ng_grid/grid/core/grid_column.dart';
 
 abstract class ItemRendererBase<T> extends ComponentState {
-
   //-----------------------------
   // Public Properties
   //-----------------------------
@@ -24,9 +22,7 @@ abstract class ItemRendererBase<T> extends ComponentState {
   //-----------------------------
 
   String resolveLabel() {
-
-    if (gridColumn == null ||
-        data == null) {
+    if (gridColumn == null || data == null) {
       return '';
     }
 
